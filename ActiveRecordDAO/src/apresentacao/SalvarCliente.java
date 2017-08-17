@@ -13,6 +13,7 @@ import negocio.Endereco;
 public class SalvarCliente extends javax.swing.JFrame {
     Cliente contato = null;
     Endereco enderecoContato = null;
+    final Pattern regexTexto = Pattern.compile("^[A-Za-z, ]++$");
     public SalvarCliente() {
         this.setTitle("AGENDA");
         this.setSize(580,600);
@@ -183,75 +184,23 @@ public class SalvarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdVoltarActionPerformed
 
     private void cmdSalvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSalvaActionPerformed
-        final Pattern regexTexto = Pattern.compile("^[A-Za-z, ]++$");
-        String nome = this.textoNome.getText();
+        
         if(this.contato == null){
-            if(regexTexto.matcher(nome).matches()){
-                this.contato = new Cliente();
-                this.contato.setNome(nome);
-                try {
-                    this.contato.salva();
-                   if(this.contato.getId() == 0) this.contato = null;
-                   this.cmdApagar.setEnabled(false);
-                } catch (SQLException ex) {
-                    this.contato = null;
-                } 
-            }else{
-                JOptionPane.showMessageDialog(this, "Nome Invalido: "+nome, "Agenda", HEIGHT);
-            }
+            novoContato();
         }else{
-            if(nome.compareTo(this.contato.getNome()) != 0){
-                try {
-                    this.contato.setNome(nome);
-                    this.contato.atualizar();
-                } catch (SQLException ex) {
-                    
-                }
-            }  
+            atualizaContato(); 
         }
-        String logradouro = this.textoLogradouro.getText(),
-        bairro = this.textoBairro.getText(),
-        numero = this.textnumero.getText(),
-        complemento = this.textoComplemento.getText();
+        
         if(this.contato != null && this.enderecoContato == null){
-            this.enderecoContato = new Endereco();
-            this.enderecoContato.setBairro(bairro);
-            this.enderecoContato.setLogradouro(logradouro);
-            this.enderecoContato.setNumero(numero);
-            this.enderecoContato.setComplemento(complemento);
-            this.enderecoContato.setClienteId(this.contato.getId());
-            try {
-                this.enderecoContato.salvar();
-                this.contato.setEndereco(this.enderecoContato);
-                this.listaEnderecos.add(this.enderecoContato.getLogradouro() + 
-                    " - " + this.enderecoContato.getNumero());
-                this.enderecoContato = null;
-                this.textoLogradouro.setText("");
-                this.textoBairro.setText("");
-                this.textnumero.setText("");
-                this.textoComplemento.setText("");
-            } catch (SQLException ex) {
-                this.enderecoContato = null;
+            if((this.textoBairro.getText().compareTo("") != 0) || (this.textoLogradouro.getText().compareTo("") != 0)){
+                novoEndereco();  
             }
-        }
-        if(this.contato != null && this.enderecoContato != null) {
-            this.enderecoContato = new Endereco();
-            this.enderecoContato.setBairro(bairro);
-            this.enderecoContato.setLogradouro(logradouro);
-            this.enderecoContato.setNumero(numero);
-            this.enderecoContato.setNumero(numero);
-            try {
-                this.enderecoContato.atualizar();
-                this.textoLogradouro.setText("");
-                this.textoBairro.setText("");
-                this.textnumero.setText("");
-                this.textoComplemento.setText("");
-                this.listaEnderecos.removeAll();
-                this.listarEnderecos();
-                this.enderecoContato = null;
-            } catch (SQLException ex) {
-               
+            
+        }else if(this.contato != null && this.enderecoContato != null) {
+           if((this.textoBairro.getText().compareTo("") != 0) || (this.textoLogradouro.getText().compareTo("") != 0)){
+                atualizaEndereco();
             }
+           
         }
     }//GEN-LAST:event_cmdSalvaActionPerformed
 
@@ -306,7 +255,82 @@ public class SalvarCliente extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_cmdApagarActionPerformed
+    private void novoContato(){
+        String nome = this.textoNome.getText();
+        if(regexTexto.matcher(nome).matches()){
+                this.contato = new Cliente();
+                this.contato.setNome(nome);
+                try {
+                    this.contato.salva();
+                   if(this.contato.getId() == 0) this.contato = null;
+                   this.cmdApagar.setEnabled(false);
+                } catch (SQLException ex) {
+                    this.contato = null;
+                } 
+            }else{
+                JOptionPane.showMessageDialog(this, "Nome Invalido: "+nome, "Agenda", HEIGHT);
+            }
+    }
+    private void atualizaContato(){
+        String nome = this.textoNome.getText();
+        if(nome.compareTo(this.contato.getNome()) != 0){
+                try {
+                    this.contato.setNome(nome);
+                    this.contato.atualizar();
+                } catch (SQLException ex) {
+                    
+                }
+            }
+    }
+    
+    private void novoEndereco(){
+        String logradouro = this.textoLogradouro.getText(),
+        bairro = this.textoBairro.getText(),
+        numero = this.textnumero.getText(),
+        complemento = this.textoComplemento.getText();
+        this.enderecoContato = new Endereco();
+        this.enderecoContato.setBairro(bairro);
+        this.enderecoContato.setLogradouro(logradouro);
+        this.enderecoContato.setNumero(numero);
+        this.enderecoContato.setComplemento(complemento);
+        this.enderecoContato.setClienteId(this.contato.getId());
+        try {
+            this.enderecoContato.salvar();
+            this.contato.setEndereco(this.enderecoContato);
+            this.listaEnderecos.add(this.enderecoContato.getLogradouro() + 
+                " - " + this.enderecoContato.getNumero());
+            this.enderecoContato = null;
+            this.textoLogradouro.setText("");
+            this.textoBairro.setText("");
+            this.textnumero.setText("");
+            this.textoComplemento.setText("");
+        } catch (SQLException ex) {
+            this.enderecoContato = null;
+        }
+    }
+    private void atualizaEndereco(){
+        String logradouro = this.textoLogradouro.getText(),
+        bairro = this.textoBairro.getText(),
+        numero = this.textnumero.getText(),
+        complemento = this.textoComplemento.getText();
+        this.enderecoContato = new Endereco();
+        this.enderecoContato.setBairro(bairro);
+        this.enderecoContato.setLogradouro(logradouro);
+        this.enderecoContato.setNumero(numero);
+        this.enderecoContato.setNumero(numero);
+        try {
+            this.enderecoContato.atualizar();
+            this.textoLogradouro.setText("");
+            this.textoBairro.setText("");
+            this.textnumero.setText("");
+            this.textoComplemento.setText("");
+            this.listaEnderecos.removeAll();
+            this.listarEnderecos();
+            this.enderecoContato = null;
+        } catch (SQLException ex) {
 
+        }
+    }
     
     public static void main(String args[]) {
         
