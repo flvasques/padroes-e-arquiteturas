@@ -48,7 +48,6 @@ public class EnderecoDao extends ConectaDao {
                e.setBairro(rs.getString("bairro"));
                e.setLogradouro(rs.getString("logradouro"));
                e.setComplemento(rs.getString("complemento"));
-               e.setClienteId(rs.getInt("cliente_id"));
             }
             con.close();
             return e;
@@ -79,7 +78,6 @@ public class EnderecoDao extends ConectaDao {
                     e.setBairro(rs.getString("bairro"));
                     e.setLogradouro(rs.getString("logradouro"));
                     e.setComplemento(rs.getString("complemento"));
-                    e.setClienteId(rs.getInt("cliente_id"));
                     lista.add(e);
                 }
                 con.close();

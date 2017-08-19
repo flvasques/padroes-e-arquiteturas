@@ -38,14 +38,20 @@ public class Cliente {
 
     public void setEndereco(ArrayList endereco) {
         this.endereco = endereco;
+        for (int i = 0; i < this.endereco.size(); i++){
+                this.endereco.get(i).setDono(this);
+        }
     }
     
     public void setEndereco(Endereco item){
         if(this.endereco !=  null){
+            item.setDono(this);
              this.endereco.add(item);
         }else {
             this.endereco = new ArrayList<>();
+            item.setDono(this);
             this.endereco.add(item);
+            
         }
        
     }

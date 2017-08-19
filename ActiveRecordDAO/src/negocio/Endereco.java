@@ -10,7 +10,7 @@ public class Endereco {
     private String bairro;
     private String logradouro;
     private String complemento;
-    private int clienteId;
+    private Cliente cliente;
     
     public Endereco (){
         
@@ -57,11 +57,11 @@ public class Endereco {
     }
 
     public int getClienteId() {
-        return clienteId;
+        return cliente.getId();
     }
 
-    public void setClienteId(int clienteId) {
-        this.clienteId = clienteId;
+    public void setDono(Cliente cliente) {
+        this.cliente = cliente;
     }
     
     public void salvar() throws SQLException{

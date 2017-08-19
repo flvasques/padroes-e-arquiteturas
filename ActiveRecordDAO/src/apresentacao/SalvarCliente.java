@@ -256,7 +256,7 @@ public class SalvarCliente extends javax.swing.JFrame {
         this.enderecoContato.setLogradouro(logradouro);
         this.enderecoContato.setNumero(numero);
         this.enderecoContato.setComplemento(complemento);
-        this.enderecoContato.setClienteId(this.contato.getId());
+        this.enderecoContato.setDono(this.contato);
         try {
             this.enderecoContato.salvar();
             this.contato.setEndereco(this.enderecoContato);
