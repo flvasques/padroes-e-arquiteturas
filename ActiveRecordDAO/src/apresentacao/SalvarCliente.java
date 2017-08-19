@@ -13,6 +13,7 @@ import negocio.Endereco;
 public class SalvarCliente extends javax.swing.JFrame {
     Cliente contato = null;
     Endereco enderecoContato = null;
+    int pos;
     final Pattern regexTexto = Pattern.compile("^[A-Za-z, ]++$");
     public SalvarCliente() {
         this.setTitle("AGENDA");
@@ -202,7 +203,7 @@ public class SalvarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdSalvaActionPerformed
 
     private void listaEnderecosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaEnderecosActionPerformed
-       int pos = this.listaEnderecos.getSelectedIndex();
+       this.pos = this.listaEnderecos.getSelectedIndex();
        this.enderecoContato = (Endereco) this.contato.getEndereco().get(pos);
        this.textoLogradouro.setText(this.enderecoContato.getLogradouro());
        this.textoBairro.setText(this.enderecoContato.getBairro());
@@ -331,8 +332,7 @@ public class SalvarCliente extends javax.swing.JFrame {
         try {
             this.enderecoContato.excluir();
             this.enderecoContato = null;
-            this.listaEnderecos.removeAll();
-            this.listarEnderecos();
+            this.listaEnderecos.remove(this.pos);
             this.enderecoContato = null;
         } catch (SQLException ex) {
 
