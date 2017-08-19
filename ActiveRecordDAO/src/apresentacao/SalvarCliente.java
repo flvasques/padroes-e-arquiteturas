@@ -190,17 +190,14 @@ public class SalvarCliente extends javax.swing.JFrame {
         }else{
             atualizaContato(); 
         }
-        
         if(this.contato != null && this.enderecoContato == null){
             if((this.textoBairro.getText().compareTo("") != 0) || (this.textoLogradouro.getText().compareTo("") != 0)){
                 novoEndereco();  
             }
-            
         }else if(this.contato != null && this.enderecoContato != null) {
            if((this.textoBairro.getText().compareTo("") != 0) || (this.textoLogradouro.getText().compareTo("") != 0)){
                 atualizaEndereco();
-            }
-           
+           }
         }
     }//GEN-LAST:event_cmdSalvaActionPerformed
 
@@ -216,43 +213,9 @@ public class SalvarCliente extends javax.swing.JFrame {
 
     private void cmdApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdApagarActionPerformed
         if(this.enderecoContato == null){
-            if(this.contato.getEndereco().size() > 0){
-                ArrayList<Endereco> ends = this.contato.getEndereco();
-                for (int i = 0; i < this.contato.getEndereco().size(); i++) {
-                    try {
-                        ends.get(i).excluir();
-                    } catch (SQLException ex) {
-                    }
-               }
-            }
-             try {
-                  this.contato.excluir();
-                } catch (SQLException ex) {
-                    Logger.getLogger(SalvarCliente.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            this.contato = null;
-            this.enderecoContato = null;
-            this.listaEnderecos.removeAll();
-            this.textoLogradouro.setText("");
-            this.textoBairro.setText("");
-            this.textnumero.setText("");
-            this.textoComplemento.setText("");
-            this.textoNome.setText("");
+            apagarContato();
         }else{
-            this.textoLogradouro.setText("");
-            this.textoBairro.setText("");
-            this.textnumero.setText("");
-            this.textoComplemento.setText("");
-            this.cmdApagar.setText("Apagar Contato");
-            try {
-                this.enderecoContato.excluir();
-                this.enderecoContato = null;
-                this.listaEnderecos.removeAll();
-                this.listarEnderecos();
-                this.enderecoContato = null;
-            } catch (SQLException ex) {
-
-            }
+           apagarEndereco();
         }
     }//GEN-LAST:event_cmdApagarActionPerformed
     private void novoContato(){
@@ -263,7 +226,7 @@ public class SalvarCliente extends javax.swing.JFrame {
                 try {
                     this.contato.salva();
                    if(this.contato.getId() == 0) this.contato = null;
-                   this.cmdApagar.setEnabled(false);
+                   this.cmdApagar.setEnabled(true);
                 } catch (SQLException ex) {
                     this.contato = null;
                 } 
@@ -313,17 +276,61 @@ public class SalvarCliente extends javax.swing.JFrame {
         bairro = this.textoBairro.getText(),
         numero = this.textnumero.getText(),
         complemento = this.textoComplemento.getText();
-        this.enderecoContato = new Endereco();
         this.enderecoContato.setBairro(bairro);
         this.enderecoContato.setLogradouro(logradouro);
         this.enderecoContato.setNumero(numero);
-        this.enderecoContato.setNumero(numero);
+        this.enderecoContato.setComplemento(complemento);
         try {
+            this.enderecoContato.atualizar();
             this.enderecoContato.atualizar();
             this.textoLogradouro.setText("");
             this.textoBairro.setText("");
             this.textnumero.setText("");
             this.textoComplemento.setText("");
+            this.listaEnderecos.removeAll();
+            this.listarEnderecos();
+            this.enderecoContato = null;
+            this.cmdApagar.setText("Apagar Contato");
+        } catch (SQLException ex) {
+
+        }
+    }
+    private void apagarContato(){
+        if(this.contato.getEndereco() != null){
+            if(this.contato.getEndereco().size() > 0){
+                ArrayList<Endereco> ends = this.contato.getEndereco();
+                for (int i = 0; i < this.contato.getEndereco().size(); i++) {
+                    try {
+                        ends.get(i).excluir();
+                    } catch (SQLException ex) {
+                    }
+               }
+            }
+        }
+             try {
+                  this.contato.excluir();
+                } catch (SQLException ex) {
+                    Logger.getLogger(SalvarCliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            this.contato = null;
+            this.enderecoContato = null;
+            this.listaEnderecos.removeAll();
+            this.textoLogradouro.setText("");
+            this.textoBairro.setText("");
+            this.textnumero.setText("");
+            this.textoComplemento.setText("");
+            this.textoNome.setText("");
+            this.cmdApagar.setEnabled(false);
+    }
+    private void apagarEndereco(){
+        this.textoLogradouro.setText("");
+        this.textoBairro.setText("");
+        this.textnumero.setText("");
+        this.textoComplemento.setText("");
+        this.cmdApagar.setText("Apagar Contato");
+        try {
+            this.enderecoContato.excluir();
+            this.enderecoContato = null;
             this.listaEnderecos.removeAll();
             this.listarEnderecos();
             this.enderecoContato = null;
