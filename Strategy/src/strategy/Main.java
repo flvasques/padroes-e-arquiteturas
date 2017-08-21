@@ -9,7 +9,7 @@ package strategy;
  *
  * @author Fernando Vasques
  */
-public class Strategy {
+public class Main {
 
     /**
      * @param args the command line arguments
