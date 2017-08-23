@@ -1,9 +1,8 @@
 
 package negocio;
 
-import negocio.Interfaces.Arma;
 
-public abstract class Item  implements Arma{
+public abstract class Item{
     protected int id;
     protected String nome;
     protected int qualidade;

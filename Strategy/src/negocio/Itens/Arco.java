@@ -4,10 +4,17 @@ package negocio.Itens;
 import negocio.Interfaces.*;
 import negocio.Item;
 
-public class Arco extends Item implements Arma, LongoAlcance {
+public class Arco extends Item implements Arma{
    private int alcance;
    private int modifacador;
-
+   
+    public Arco(){
+        super.id = 1;
+        super.nome = "Arco Longo";
+        super.qualidade = 10;
+        this.alcance  = 100;
+        this.modifacador = 30;
+    }
     @Override
     public String getNome() {
         return super.nome;
@@ -29,13 +36,14 @@ public class Arco extends Item implements Arma, LongoAlcance {
     }
 
     @Override
-    public Item equipar() {
+    public Arma equipar() {
         return this;
     }
 
     @Override
-    public int disparar(Municao m) {
-        return this.modifacador + m.getModificador();
+    public int atacar() {
+        System.out.println("Tiro de arco! Tcho");
+        return this.modifacador;
     }
 
     @Override

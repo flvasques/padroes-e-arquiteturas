@@ -1,21 +1,21 @@
+
 package negocio.Itens;
 
 import negocio.Interfaces.Arma;
 import negocio.Interfaces.CurtoAlcance;
 import negocio.Item;
 
-public class Faca extends Item implements Arma, CurtoAlcance {
+public class Machado extends Item implements Arma, CurtoAlcance {
     private int dano;
     private int defesa;
     
-    public Faca(){
-        super.id = 3;
-        super.nome = "Faca oculta";
+    public Machado(){
+        super.id = 2;
+        super.nome = "Macahdo de guerra";
         super.qualidade = 10;
-        this.dano  = 20;
-        this.defesa = 5;
+        this.dano  = 25;
+        this.defesa = 10;
     }
-    
     @Override
     public int getId() {
         return super.id;
@@ -52,7 +52,7 @@ public class Faca extends Item implements Arma, CurtoAlcance {
 
     @Override
     public int atacar() {
-        System.out.println("Facadaaa! Cuxim...");
+        System.out.println("Machadada! Quelerct!");
         return this.dano;
     }
 

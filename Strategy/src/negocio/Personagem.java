@@ -1,43 +1,29 @@
 
 package negocio;
 
-import java.util.ArrayList;
+import negocio.Interfaces.Arma;
 
-public class Personagem {
-    private String nome;
-    private ClassePersonagem classe;
-    private ArrayList<Item> mochila;
-    private Item equipado;
-    public Personagem(){
-        this.mochila = new ArrayList<>();
-    }
 
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    public ClassePersonagem getClasse() {
-        return classe;
-    }
-    public void setClasse(ClassePersonagem classe) {
-        this.classe = classe;
-    }
-    public ArrayList<Item> getMochila() {
-        return mochila;
-    }
-    public void setMochila(ArrayList<Item> mochila) {
-        this.mochila = mochila;
-    }
-    public void setMochila(Item item){
-        this.mochila.add(item);
-    }   
-    public Item getEquipado() {
-        return equipado;
-    }
-    public void setEquipado(Item equipado) {
-        this.equipado = equipado;
-    }
+public abstract class Personagem {
+    protected String nome;
+    protected Arma equipado;
+    protected int ataque;
+    protected int defesa;
+    protected int vida;
+    protected boolean vivo = true;
+    
+    public abstract String getNome();
+    public abstract void setNome(String nome);
+    public abstract Arma getEquipado();
+    public abstract void setEquipado(Arma equipado);
+    public abstract int getAtaque();
+    public abstract void setAtaque(int ataque);
+    public abstract int getDefesa();
+    public abstract void setDefesa(int defesa);
+    public abstract int getVida();
+    public abstract void setVida(int vida);
+    public abstract int atacar();
+    public abstract String receberAtaque(int ataque);
+    public abstract boolean vivo();
     
 }

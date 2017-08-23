@@ -1,21 +1,36 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package strategy;
 
-/**
- *
- * @author Fernando Vasques
- */
+import negocio.*;
+import negocio.Interfaces.*;
+import negocio.Itens.*;
+
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Personagem rei = new Rei("Artur");
+        Personagem rainha = new Rainha("Morgana");
+        Personagem cavaleiro = new Cavaleiro("Lancelot");
+        Arma arco = new Arco();
+        Arma espada = new Espada();
+        Arma faca = new Faca();
+        Arma machado = new Machado();
+        
+        System.out.println("Primeira Luta Inicio!!");
+        Campo luta1 = new Campo(rainha, cavaleiro);
+        rainha.setEquipado(arco);
+        cavaleiro.setEquipado(espada);
+        while(!luta1.getFim()){
+            luta1.novoRound();
+        }
+        System.out.println("Segunda Luta Inicio!!");
+        Campo luta2 = new Campo(rainha, rei);
+        rei.setEquipado(machado);
+        rainha.setEquipado(faca);
+        luta2.novoRound();
+        rainha.setEquipado(espada);
+        while(!luta2.getFim()){
+            luta2.novoRound();
+        }
     }
-    
 }

@@ -8,6 +8,15 @@ import negocio.Item;
 public class Espada extends Item implements Arma, CurtoAlcance {
     private int dano;
     private int defesa;
+    
+    public Espada(){
+        super.id = 4;
+        super.nome = "Espada Longa";
+        super.qualidade = 10;
+        this.dano  = 20;
+        this.defesa = 20;
+    }
+    
     @Override
     public int getId() {
         return super.id;
@@ -38,12 +47,13 @@ public class Espada extends Item implements Arma, CurtoAlcance {
     }
 
     @Override
-    public Item equipar() {
+    public Arma equipar() {
         return this;
     }
 
     @Override
     public int atacar() {
+        System.out.println("Espadada! Squint");
         return this.dano;
     }
 
