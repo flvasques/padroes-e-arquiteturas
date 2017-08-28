@@ -6,20 +6,24 @@ import negocio.Interfaces.*;
 
 public class Leiloeiro implements ILeiloeiro {
     private Lance vencedor;
-    private ArrayList<IParticipante> participantes;
+    private ArrayList<IParticipante> participantes = new ArrayList<>();
     
+    @Override
     public void entar(IParticipante p){
         participantes.add(p);
     }
+    @Override
     public void desistir(IParticipante p){
         this.participantes.remove(p);
     }
+    @Override
     public void receberLance(Lance l){
         if(l.getValor() > vencedor.getValor()){
             this.vencedor = l;
             notificar();
         }
     }
+    @Override
     public void iniciar(double v){
         this.vencedor = new Lance(v);
         notificar();
