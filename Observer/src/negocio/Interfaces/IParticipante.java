@@ -4,8 +4,8 @@ import negocio.Lance;
 import negocio.Leiloeiro;
 
 public interface IParticipante {
-    void adamento(Lance l);
+    Lance adamento(Lance l);
     void entrar(ILeiloeiro leilao);
     void sair();
-    void darLance(double v);
+    Lance darLance(double v);
 }

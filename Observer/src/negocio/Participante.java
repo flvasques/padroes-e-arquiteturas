@@ -11,10 +11,16 @@ public class Participante implements IParticipante{
     public Participante(String n){
         this.nome = n;
     }
+    
+    public String getNome(){
+        return this.nome;
+    }
 
     @Override
-    public void darLance(double v){
-        leilao.receberLance(new Lance(v,this));
+    public Lance darLance(double v){
+        Lance l = new Lance(v,this);
+        leilao.receberLance(l);
+        return l;
     }
     
     @Override
@@ -28,7 +34,10 @@ public class Participante implements IParticipante{
     }
     
     @Override
-    public void adamento(Lance l) {
-        System.out.println("Lance de " + l.getDono() + " por R$" + l.getValor());
+    public Lance adamento(Lance l) {
+        System.out.println("Lance " 
+        + (l.getDono() == null ?( "INICIAL " ): ( "de " + l.getDono().getNome()))
+        + " por R$" + l.getValor());
+        return l;
     } 
 }

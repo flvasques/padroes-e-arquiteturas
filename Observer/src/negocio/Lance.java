@@ -9,6 +9,7 @@ public class Lance {
     
     public Lance(double valor){
         this.valor = valor;
+        this.dono = null;
     }
     
     public Lance(double valor, Participante dono){
