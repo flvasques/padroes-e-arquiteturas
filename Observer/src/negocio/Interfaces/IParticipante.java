@@ -1,11 +1,12 @@
 package negocio.Interfaces;
 
 import negocio.Lance;
-import negocio.Leiloeiro;
+import observer.Leilao;
 
 public interface IParticipante {
-    Lance adamento(Lance l);
+    void adamento(Lance l, boolean fim);
     void entrar(ILeiloeiro leilao);
     void sair();
     Lance darLance(double v);
+    void setTelaLeilao(Leilao telaLeilao);
 }

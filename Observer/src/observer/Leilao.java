@@ -2,6 +2,7 @@
 package observer;
 
 import java.util.ArrayList;
+import java.util.Random;
 import negocio.Interfaces.ILeiloeiro;
 import negocio.Interfaces.IParticipante;
 import negocio.Lance;
@@ -11,15 +12,20 @@ public class Leilao extends javax.swing.JFrame {
     IParticipante partticipante;
     ArrayList<Lance> meus = new ArrayList();
     ArrayList<Lance> lances = new ArrayList();
-    public Leilao(ILeiloeiro l,IParticipante p) {
-        this.leiloeiro = l;
-        this.partticipante = p;
+    public Leilao(ILeiloeiro l,IParticipante p) { 
         this.setTitle("Arremate.JAVA");
         this.setSize(500,800);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         initComponents();
         this.setVisible(true);
+        this.listaLances.add("Lances");
+        this.listaMeusLances.add("Meus Lances");
+        this.leiloeiro = l;
+        this.partticipante = p;
+        this.partticipante.setTelaLeilao(this);
+        Random valor = new Random();
+        this.leiloeiro.iniciar(((double) valor.nextInt(2000 - 100)));
     }
 
     private Leilao() {

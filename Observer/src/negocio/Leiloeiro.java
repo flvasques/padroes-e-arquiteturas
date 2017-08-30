@@ -10,7 +10,6 @@ import observer.Loader;
 public class Leiloeiro implements ILeiloeiro {
     private Lance vencedor;
     private ArrayList<IParticipante> participantes = new ArrayList<>();
-    private Loader pai;
     private int cont = 0;
     
     @Override
@@ -25,50 +24,40 @@ public class Leiloeiro implements ILeiloeiro {
     public void receberLance(Lance l){
         if(l.getValor() > vencedor.getValor()){
             this.vencedor = l;
-            notificar();
-            if(l.getDono().equals(this.participantes.get(this.participantes.size() -1)))novo();
+            notificar(false);
+            novo();
         }
     }
     @Override
     public void iniciar(double v){
         this.vencedor = new Lance(v);
-        notificar();
+        notificar(false);
     }
-    public Lance finalizar(){
-        notificar();
-        JOptionPane.showMessageDialog(null, "Item Vendido para: " + this.vencedor.getDono().getNome(), "Agenda", JOptionPane.OK_OPTION);
-        this.pai.reset();
-        return this.vencedor;
+    public void finalizar(){
+        notificar(true);
+        JOptionPane.showMessageDialog(null, "Item Vendido para: " + this.vencedor.getDono().getNome(), "Arremate.JAVA", JOptionPane.OK_OPTION);
+        this.cont = 0;
     }
-    private void notificar(){
-        this.pai.call(vencedor);
+    private void notificar(boolean fim){
         for (int i = 0; i < this.participantes.size(); i++) {
-            this.participantes.get(i).adamento(this.vencedor); 
+            this.participantes.get(i).adamento(this.vencedor, fim); 
         }
-    }
-    @Override
-    public void setPai(Loader l){
-        this.pai = l;
-    }
-    @Override
-    public Loader getPai(){
-        return this.pai;
     }
     private void novo(){
          Random n = new Random();
          int i;
          i = n.nextInt((this.participantes.size() - 2) - 0);
-         if(this.cont <= 5){
-             this.cont++;
-            this.participantes.get(i).darLance(this.vencedor.getValor() + 100);   
-         }else{
-             if(n.nextInt(1 - 0) == 1){
-                  this.participantes.get(i).darLance(this.vencedor.getValor() + 100);
-             }else{
-                 finalizar();
-                 this.cont = 0;
-             }
+         if(this.participantes.get(this.participantes.size() -1).equals(this.vencedor.getDono())){
+            if(this.cont <= 5){
+                this.cont++;
+               this.participantes.get(i).darLance(this.vencedor.getValor() + 100);   
+            }else{
+                if(n.nextBoolean()){
+                     this.participantes.get(i).darLance(this.vencedor.getValor() + 100);
+                }else{
+                    finalizar();
+                }
+            }
          }
-         
     }
 }

@@ -1,7 +1,6 @@
 
 package observer;
 
-import java.util.Random;
 import negocio.Interfaces.ILeiloeiro;
 import negocio.Interfaces.IParticipante;
 import negocio.Participante;
@@ -71,12 +70,9 @@ public class Inicio extends javax.swing.JFrame {
 
     private void cmdEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdEntrarActionPerformed
        this.novo = new Participante(textoNome.getText());
-       this.novo.entrar(this.leiloeiro);
-       this.leiloeiro.getPai().setLaeilao(new Leilao(this.leiloeiro,this.novo));
-       Random valor = new Random();
-       this.leiloeiro.iniciar(((double) valor.nextInt(2000 - 100)));
-       this.dispose();
-       
+       this.novo.entrar(this.leiloeiro);     
+       new Leilao(this.leiloeiro,this.novo);
+       this.dispose();    
     }//GEN-LAST:event_cmdEntrarActionPerformed
 
     /**
