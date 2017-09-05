@@ -1,5 +1,5 @@
 
-package persistencia;
+package modelo;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -8,9 +8,13 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Escritor {
-   public static void bild(String s){
-       
+public abstract class Html {
+    protected String attr;
+    
+    public abstract String preview();
+    
+    public void build(String s){
+        s += "</html>";
        BufferedWriter arquivo;
        try {
             arquivo = new BufferedWriter (new FileWriter(new File("Cobaia.html")));
@@ -18,8 +22,8 @@ public class Escritor {
             arquivo.flush();
             arquivo.close();
        } catch (IOException ex) {
-            Logger.getLogger(Escritor.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Html.class.getName()).log(Level.SEVERE, null, ex);
        }
-       
-   } 
+   }
+    
 }
