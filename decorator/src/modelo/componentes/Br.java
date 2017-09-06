@@ -4,12 +4,10 @@ package modelo.componentes;
 import modelo.Componente;
 import modelo.Html;
 
-public class Title extends Componente {
-
-    public Title(Html htl, String titulo, boolean u){
+public class Br extends Componente {
+    public Br(Html htl, boolean u){
         super();
         super.pagina = htl;
-        super.attr = titulo;
         super.ultimo = u;
     }
 
@@ -23,7 +21,6 @@ public class Title extends Componente {
     
     @Override
     public String preview(){
-        return super.preview() + "\t\t<title>" + super.attr +"</title>\n" + (super.ultimo ? "\t</head>\n" : "");
-    }
-
+        return super.preview() + "\t\t<br />\n" + (super.ultimo ? "\t</body>\n" : "");
+    } 
 }

@@ -8,7 +8,7 @@ public abstract class Componente extends Html {
     protected boolean ultimo;
     
     public String getArgs() {
-        return outros != null ? outros : "";
+        return (this.outros != null) ? this.outros : "";
     }
 
     public void setArgs(String outros) {

@@ -39,6 +39,6 @@ public class Form extends Componente {
     @Override
     public String preview(){
         return super.preview() + "\t\t<form method=\"" + getMethod() + "\" action=\"" + getAction() + "\""
-                + getArgs() + ">\n" + (super.ultimo ? "\t\t</form>\n" : "");
+                + super.getArgs() + ">\n" + (super.ultimo ? "\t\t</form>\n" : "");
     }
 }

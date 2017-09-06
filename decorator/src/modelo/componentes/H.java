@@ -33,8 +33,7 @@ public class H extends Componente {
     }
      @Override
     public String preview(){
-        return super.preview() + "\t\t<"+ getTipo() + " " + getArgs()
+        return super.preview() + "\t\t<"+ getTipo() + " " + super.getArgs()
                 + ">" + getTexto() + "</"+ getTipo() +">\n" + (super.ultimo ? "\t</body>\n" : "");
     }
-
 }

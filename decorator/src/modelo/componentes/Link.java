@@ -32,7 +32,8 @@ public class Link extends Componente {
     }
     @Override
     public String preview(){
-        return super.preview() + "\t\t<link href=\"" + super.attr + "\" "+ getType() + "\n"
+        return super.preview() + "\t\t<link href=\"" + super.attr + "\" "
+                + getType() + " " + super.getArgs()+ "/>" + "\n"
                 + (super.ultimo ? "\t</head>\n" : "");
-    } 
+    }
 }

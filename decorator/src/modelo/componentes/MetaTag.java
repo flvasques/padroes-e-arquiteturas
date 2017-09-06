@@ -14,7 +14,7 @@ public class MetaTag extends Componente {
     }
 
     public String getContent() {
-        return content != null ? content : "";
+        return content != null ? "content=\"" + content + "\"" : "";
     }
 
     public void setContent(String content) {

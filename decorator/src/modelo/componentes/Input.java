@@ -51,6 +51,6 @@ public class Input extends Componente {
     @Override
     public String preview(){
         return super.preview() + "\t\t\t<input type=\"" + getType() + "\" name=\"" + getName() + "\""
-                + "id=\"" + getId() + "\"" + getArgs() + "/>\n" + (super.ultimo ? "\t\t</form>\n" : "");
+                + " id=\"" + getId() + "\" " + super.getArgs() + "/>\n" + (super.ultimo ? "\t\t</form>\n" : "");
     }
 }
