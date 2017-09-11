@@ -48,7 +48,7 @@ public abstract class Conversor {
             return false;
         }
    }
-   private boolean gravar(String nome){
+   protected boolean gravar(String nome){
       BufferedWriter arquivo;
        try {
             arquivo = new BufferedWriter (new FileWriter(new File(nome)));

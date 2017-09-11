@@ -27,6 +27,7 @@ public class Opcoes extends javax.swing.JFrame {
         this.comboFormatos.removeAllItems();
         this.comboFormatos.addItem(" ");
         this.comboFormatos.addItem("HTML");
+        this.comboFormatos.addItem("PDF");
         this.comboFormatos.setSelectedIndex(0);
     }
       
@@ -208,6 +209,9 @@ public class Opcoes extends javax.swing.JFrame {
         switch(tipoSaida){
             case 1:
                 result = ((Conversor)new ToHtml()).exportar(path, nome);
+                break;
+            case 2:
+                result = ((Conversor)new ToPDF()).exportar(path, nome);
                 break;
             default:
                 this.lblAjuda.setText("Escolha um Forato de saida.");
