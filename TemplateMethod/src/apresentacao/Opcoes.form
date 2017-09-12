@@ -27,30 +27,33 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblFormato" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblArquivo" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="lblSalvar" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblFormato" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblArquivo" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="comboFormatos" min="-2" pref="88" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="lblAjuda" min="-2" pref="238" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="txtSaida" max="32767" attributes="0"/>
                           <Component id="textoArquivo" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="comboFormatos" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
+                                  <Component id="lblAjuda" alignment="0" min="-2" pref="367" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="lblSalvar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtSaida" pref="402" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="cmdExporta" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="cmdEscolha" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="cmdBusca" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmdEscolha" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -69,24 +72,19 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="cmdBusca" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtSaida" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblAjuda" min="-2" pref="19" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblFormato" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="comboFormatos" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblFormato" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboFormatos" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lblAjuda" min="-2" pref="19" max="-2" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSaida" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <Component id="cmdEscolha" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="44" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="cmdExporta" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>

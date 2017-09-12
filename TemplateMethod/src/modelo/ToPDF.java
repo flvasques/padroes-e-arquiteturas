@@ -24,17 +24,17 @@ public class ToPDF extends Conversor {
             doc.setMargins(20, 20, 20, 20);
             Font normal = new Font(Font.FontFamily.TIMES_ROMAN, 12,Font.NORMAL, BaseColor.BLACK);
             Font negrito = new Font(Font.FontFamily.TIMES_ROMAN, 14,Font.BOLD, BaseColor.BLACK);
-            PdfPTable dados = new PdfPTable(super.cabecalho.size());
+            PdfPTable tebala = new PdfPTable(super.cabecalho.size());
             for(int i = 0; i < super.cabecalho.size(); i++){
-                dados.addCell(new Paragraph(super.cabecalho.get(i),negrito));
+                tebala.addCell(new Paragraph(super.cabecalho.get(i),negrito));
             }
             for(int i = 0; i < super.dados.size(); i++){
-                for(int j = 0; j <super.dados.get(i).getDados().length; j++){
-                    dados.addCell(new Paragraph(super.dados.get(i).getDados()[j],normal));
+                for(int j = 0; j < super.dados.get(i).getDados().length; j++){
+                    tebala.addCell(new Paragraph(super.dados.get(i).getDados()[j],normal));
                 }
             }
             ret = true;
-            doc.add(dados);
+            doc.add(tebala);
         } catch (FileNotFoundException | DocumentException ex) {
             JOptionPane.showMessageDialog(null, ex, "Exportador", JOptionPane.ERROR_MESSAGE);
         } finally{
