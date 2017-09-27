@@ -20,7 +20,6 @@ public class EnderecoDao extends ConectaDao {
             cmd.setString(3, entidade.getLogradouro());
             cmd.setString(4, entidade.getComplemento());
             cmd.setInt(5, entidade.getClienteId());
-            
             ResultSet rs = cmd.executeQuery();
             rs.next();
             int id = rs.getInt("id");

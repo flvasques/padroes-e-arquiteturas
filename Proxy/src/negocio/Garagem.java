@@ -2,6 +2,7 @@
 package negocio;
 
 import java.util.ArrayList;
+import persistencia.LoadInMock;
 
 public class Garagem {
     private Veiculo[][] vagas;
@@ -11,13 +12,19 @@ public class Garagem {
     
     public Garagem(){
         vagas = new Veiculo[3][3];
+        LoadInMock loader = new LoadInMock();
+        funcionarios = loader.loadFuncionario();
+        ArrayList<Veiculo> v = loader.loadVeiculos();
+        saida.add(v.get(0));
+        entrada.add(v.get(1));
+        vagas[0][0] = v.get(2);
     }
     
-    private void entrar(Veiculo v){
+    public void entrar(Veiculo v){
         entrada.add(v);
     }
     
-    private void estacionar(Veiculo[][] matriz, Veiculo v){
+    public void estacionar(Veiculo[][] matriz, Veiculo v){
         boolean ret = false;
         int i = 0;
         entrada.remove(v);
@@ -27,7 +34,7 @@ public class Garagem {
         }
     }
     
-    private void retirar(String placa){
+    public void retirar(String placa){
         boolean ret = false;
         int i = 0;
         Veiculo v = null;
@@ -47,7 +54,7 @@ public class Garagem {
         }
     }
     
-    private Veiculo sair(String placa){
+    public Veiculo sair(String placa){
         if(saida.get(0).getPlaca().compareToIgnoreCase(placa) == 0){
             Veiculo v = saida.get(0);
             saida.remove(0);

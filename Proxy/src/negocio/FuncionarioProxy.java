@@ -14,7 +14,6 @@ public class FuncionarioProxy {
         if(this.cargo == Cargo.MANOBIRSTA) this.status = ManobristaStatus.LIVRE;
     }
     
-    
     public String getNome() {
         return nome;
     }
