@@ -18,15 +18,17 @@ public class AdapterPadrao implements SMSSender {
     
     @Override
     public boolean senderSMS(SMS sms) {
-       int tam = ((int)(sms.getTexto().length() / 160) == 0) ? 1 : (int)(sms.getTexto().length() / 160);
+       int tam = ((int)(sms.getTexto().length() / 10) == 0) ? 1 : (int)(sms.getTexto().length() / 10);
        String[] msgs = new String[tam];
        String origem = sms.getOrigem();
        String destino = sms.getDestino();
-       if(sms.getTexto().length() <= 160){
-          msgs[0] = sms.getOrigem();
+       if(sms.getTexto().length() <= 10){
+          msgs[0] = sms.getTexto();
        } else {
-           for(int i = 0, trecho = 0; i < msgs.length; i++, msgs[i] = sms.getTexto().substring(trecho, trecho + 160)){ 
-               trecho = (trecho + 160 <= sms.getTexto().length())? trecho + 160 : sms.getTexto().length();
+           for(int i = 0, trecho = 0; i < msgs.length; i++){ 
+               msgs[i] = sms.getTexto().substring(trecho, trecho + 10);
+               trecho = (trecho + 10 <= sms.getTexto().length())? trecho + 10 : sms.getTexto().length();
+               
             }
        }
         try {

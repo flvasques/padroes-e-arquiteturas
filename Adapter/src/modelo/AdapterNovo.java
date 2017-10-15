@@ -22,9 +22,10 @@ public class AdapterNovo implements EnviadorSMS {
         msg.setDestino(destino);
         msg.setOrigem(origem);
         String texto = "";
-        for(String m : msgs){
-            texto += m;
+        for(int i = 0; i < msgs.length; i++){
+            texto += msgs[i];
         }
+        msg.setTexto(texto);
         this.send.senderSMS(msg);
     }
     
