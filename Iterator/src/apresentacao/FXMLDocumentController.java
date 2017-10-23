@@ -28,31 +28,25 @@ public class FXMLDocumentController implements Initializable {
        this.listaMenu.getItems().clear();
        ArrayList<String> lista= new ArrayList<>();
        MenuItem item;
-       Iterator papa = null;       
+       Iterator itens = null;       
        switch(i){
            case 0:
-               Stack itens = cardapio.getAll();
-               while(!itens.empty()){
-                   item = (MenuItem)itens.pop();
-                   lista.add(item.getName()+ "\n- " + item.getDescriptio() + "\n \t R$" + item.getPrice() + " " + (item.isVegetarian() ? "(Vegano)" : ""));
-               }
+               itens = cardapio.getAll();
                break;
            case 1:
-               papa = cardapio.getCafe();
+               itens = cardapio.getCafe();
                break;
            case 2:
-               papa = cardapio.getPancake();
+               itens = cardapio.getPancake();
                break;
            case 3:
-               papa = cardapio.getDiner();
+               itens = cardapio.getDiner();
                break;
        }
-       if(i > 0){
-           while(papa.hasNext()){
-                   item = (MenuItem)papa.next();
-                   lista.add(item.getName()+ "\n- " + item.getDescriptio() + "\n \t R$" + item.getPrice() + " " + (item.isVegetarian() ? "(Vegano)" : ""));
-               }
-       }
+        while(itens.hasNext()){
+            item = (MenuItem)itens.next();
+            lista.add(item.getName()+ "\n- " + item.getDescriptio() + "\n \t R$" + item.getPrice() + " " + (item.isVegetarian() ? "(Vegano)" : ""));
+        }
        listaMenu.getItems().addAll(lista);
     }
     

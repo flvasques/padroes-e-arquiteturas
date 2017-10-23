@@ -24,7 +24,11 @@ public class Menu {
         return pancake.createInterator();
     }
     
-    public Stack getAll(){
+    public Iterator getAll(){
+        return new StackIterator(createAll());
+    }
+    
+    private Stack createAll(){
        Stack<MenuItem> pilha = new Stack();
        Iterator colecao = getCafe();
        while(colecao.hasNext()){
