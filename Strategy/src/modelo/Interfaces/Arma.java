@@ -1,7 +1,7 @@
 
-package negocio.Interfaces;
+package modelo.Interfaces;
 
-import negocio.Item;
+import modelo.Item;
 
 public interface Arma {
     Arma equipar();

@@ -1,9 +1,9 @@
 
 package strategy;
 
-import negocio.*;
-import negocio.Interfaces.*;
-import negocio.Itens.*;
+import modelo.*;
+import modelo.Interfaces.*;
+import modelo.Itens.*;
 
 public class Main {
 

@@ -1,5 +1,5 @@
 
-package negocio.Interfaces;
+package modelo.Interfaces;
 
 public interface CurtoAlcance {
     int aparar();
