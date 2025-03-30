@@ -1,5 +1,5 @@
 
-package negocio;
+package modelo;
 
 public class Lance {
     private double valor;

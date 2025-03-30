@@ -1,7 +1,8 @@
 
 package observer;
 
-import negocio.*;
+import modelo.Participante;
+import modelo.Leiloeiro;
 import negocio.Interfaces.*;
 
 public class Loader {

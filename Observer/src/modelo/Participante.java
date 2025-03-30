@@ -1,4 +1,4 @@
- package negocio;
+ package modelo;
 
 import negocio.Interfaces.*;
 import observer.Inicio;
