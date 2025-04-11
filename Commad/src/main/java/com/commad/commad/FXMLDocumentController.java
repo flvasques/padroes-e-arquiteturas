@@ -1,5 +1,5 @@
 
-package apresentacao;
+package com.commad.commad;
 
 import java.net.URL;
 import java.util.ResourceBundle;

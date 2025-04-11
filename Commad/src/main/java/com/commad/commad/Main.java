@@ -1,5 +1,5 @@
 
-package apresentacao;
+package com.commad.commad;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
