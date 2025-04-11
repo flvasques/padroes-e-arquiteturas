@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import negocio.Interfaces.ILeiloeiro;
 import negocio.Interfaces.IParticipante;
-import negocio.Lance;
+import modelo.Lance;
 
 public class Leilao extends javax.swing.JFrame {
     ILeiloeiro leiloeiro;

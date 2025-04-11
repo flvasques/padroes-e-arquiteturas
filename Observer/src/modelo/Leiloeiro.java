@@ -1,15 +1,14 @@
 
-package negocio;
+package modelo;
 
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JOptionPane;
 import negocio.Interfaces.*;
-import observer.Loader;
 
 public class Leiloeiro implements ILeiloeiro {
     private Lance vencedor;
-    private ArrayList<IParticipante> participantes = new ArrayList<>();
+    private final ArrayList<IParticipante> participantes = new ArrayList<>();
     private int cont = 0;
     
     @Override

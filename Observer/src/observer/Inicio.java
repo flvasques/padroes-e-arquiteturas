@@ -3,7 +3,7 @@ package observer;
 
 import negocio.Interfaces.ILeiloeiro;
 import negocio.Interfaces.IParticipante;
-import negocio.Participante;
+import modelo.Participante;
 
 
 public class Inicio extends javax.swing.JFrame {

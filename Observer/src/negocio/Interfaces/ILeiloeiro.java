@@ -1,6 +1,6 @@
 package negocio.Interfaces;
 
-import negocio.Lance;
+import modelo.Lance;
 import observer.Loader;
 
 public interface ILeiloeiro {
