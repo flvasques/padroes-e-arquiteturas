@@ -1,0 +1,10 @@
+tbd\proxy\FXMLDocumentController.class
+negocio\Garagem.class
+negocio\FuncionarioProxy.class
+negocio\enumeradores\VeiculoStatus.class
+persistencia\LoadInMock.class
+negocio\enumeradores\ManobristaStatus.class
+negocio\enumeradores\Cargo.class
+negocio\Funcionario.class
+tbd\proxy\Proxy.class
+negocio\Veiculo.class
