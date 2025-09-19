@@ -1,0 +1,1 @@
+EXPRESSION#>--module-path "C:\Program Files\Java\jdk-17.0.1\lib" --add-modules javafx.controls,javafx.fxml
