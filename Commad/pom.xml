@@ -6,23 +6,36 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx -->
         <dependency>
-            <groupId>org.jfxcore</groupId>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx</artifactId>
+            <version>18-ea+1</version> 
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
-            <version>18-ea+1</version>
+            <version>18-ea+1</version> 
             <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>org.jfxcore</groupId>
+            <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>18-ea+1</version>
+            <version>18-ea+1</version> 
             <type>jar</type>
         </dependency>
         <dependency>
-            <groupId>org.jfxcore</groupId>
+            <groupId>org.openjfx</groupId>
             <artifactId>javafx-swing</artifactId>
-            <version>18-ea+1</version>
+            <version>25-ea+21</version> 
             <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>18-ea+1</version>
+            <type>jar</type> 
         </dependency>
     </dependencies>
     <properties>
@@ -30,4 +43,16 @@
         <maven.compiler.release>17</maven.compiler.release>
         <exec.mainClass>com.commad.commad.Main</exec.mainClass>
     </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>18-ea+1</version> 
+                <configuration>
+                    <mainClass>com.commad.commad.Main</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
