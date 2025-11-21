@@ -1,34 +1,36 @@
 
 package modelo.Animacao;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.util.TimerTask;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
 
 public class Job extends TimerTask {
     
-    GraphicsContext contexto;
-    double largura, altura;
+    int largura, altura;
     int posX = 0, posY = 0;
     boolean indoX = true, indoY = true;
+    Runnable repaintCallback;
     
-    public Job (GraphicsContext c) {
-        this.contexto = c;
-        this.altura = this.contexto.getCanvas().getHeight();
-        this.largura = this.contexto.getCanvas().getWidth();
+    public Job (int largura, int altura, Runnable repaintCallback) {
+        this.altura = altura;
+        this.largura = largura;
+        this.repaintCallback = repaintCallback;
     }
     
     @Override
     public void run() {
-        limpar();
         calcular();
-        desenhar();
+        if (repaintCallback != null) {
+            repaintCallback.run();
+        }
     }
     
-    private void desenhar(){
-        contexto.setStroke(Color.BLUE);
-        contexto.fillOval(posX, posY, 30, 30);
+    public void desenhar(Graphics2D g2d){
+        g2d.setColor(Color.BLUE);
+        g2d.fillOval(posX, posY, 30, 30);
     }
+    
     private void calcular(){
         if(indoX){
             posX += 5;
@@ -46,8 +48,13 @@ public class Job extends TimerTask {
             indoY = posY <= 0;
         }
     }
-    private void limpar(){
-        contexto.clearRect(0, 0, largura, altura);
+    
+    public int getPosX() {
+        return posX;
+    }
+    
+    public int getPosY() {
+        return posY;
     }
     
 }

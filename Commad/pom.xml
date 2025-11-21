@@ -6,24 +6,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <dependencies>
-        <dependency>
-            <groupId>org.jfxcore</groupId>
-            <artifactId>javafx-graphics</artifactId>
-            <version>18-ea+1</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.jfxcore</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>18-ea+1</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.jfxcore</groupId>
-            <artifactId>javafx-swing</artifactId>
-            <version>18-ea+1</version>
-            <type>jar</type>
-        </dependency>
+        <!-- Dependências JavaFX removidas - projeto agora usa Swing -->
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

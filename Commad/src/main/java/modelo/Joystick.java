@@ -1,10 +1,10 @@
 
 package modelo;
 
-import javafx.scene.canvas.GraphicsContext;
+import java.awt.Graphics2D;
 
 
 public interface Joystick {
-    void prinmeiraAcao(GraphicsContext gc);
-    void segundaAcao(GraphicsContext gc);
+    void prinmeiraAcao(Graphics2D gc);
+    void segundaAcao(Graphics2D gc);
 }
