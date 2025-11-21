@@ -1,10 +1,12 @@
-tbd\proxy\FXMLDocumentController.class
 negocio\Garagem.class
 negocio\FuncionarioProxy.class
 negocio\enumeradores\VeiculoStatus.class
+tbd\proxy\GaragemFrame$2.class
 persistencia\LoadInMock.class
 negocio\enumeradores\ManobristaStatus.class
 negocio\enumeradores\Cargo.class
 negocio\Funcionario.class
+tbd\proxy\GaragemFrame.class
 tbd\proxy\Proxy.class
+tbd\proxy\GaragemFrame$1.class
 negocio\Veiculo.class
