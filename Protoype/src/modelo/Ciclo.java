@@ -3,7 +3,6 @@ package modelo;
 
 import java.util.ArrayList;
 import java.util.TimerTask;
-import javafx.scene.canvas.GraphicsContext;
 import modelo.dna.A;
 
 public class Ciclo extends TimerTask {
@@ -18,8 +17,9 @@ public class Ciclo extends TimerTask {
         nicho = new ArrayList<>();
         this.altura = 100;
         this.largura = 100;
-        colonia.add(new Bacteria(new A(), 0, 0));
-        colonia.add(new Bacteria(new A(), (int)largura, 0));
+        
+        colonia.addAll(Bacteria.criarBacteriasIniciais(new A(), 0, 0, (int)largura, 0));
+        
         System.out.println("Tamaho inicial da colonia: " + colonia.size());
         System.out.println("===========");
     }
@@ -29,7 +29,7 @@ public class Ciclo extends TimerTask {
         reporduzir();
     }
     
-    private void reporduzir(){
+    private void reporduzir() {
         ArrayList<Bacteria>novos = new ArrayList<>();
         for ( int i = 0; i < colonia.size(); i++ ){
             novos.add(colonia.get(i).clonar());
