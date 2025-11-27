@@ -4,6 +4,7 @@ package observer;
 import negocio.Interfaces.ILeiloeiro;
 import negocio.Interfaces.IParticipante;
 import modelo.Participante;
+import modelo.Leiloeiro;
 
 
 public class Inicio extends javax.swing.JFrame {
@@ -105,7 +106,8 @@ public class Inicio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inicio().setVisible(true);
+                ILeiloeiro leiloeiro = new Leiloeiro();
+                new Inicio(leiloeiro).setVisible(true);
             }
         });
     }

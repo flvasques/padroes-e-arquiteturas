@@ -121,7 +121,8 @@ public class Leilao extends javax.swing.JFrame {
     }//GEN-LAST:event_listaMeusLancesActionPerformed
 
     private void cmdLanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdLanceActionPerformed
-       double valor = Double.parseDouble(this.textoLance.getText());
+       String texto = this.textoLance.getText().replace(",", ".");
+       double valor = Double.parseDouble(texto);
        this.meus.add(this.partticipante.darLance(valor));
        listarMeus();
     }//GEN-LAST:event_cmdLanceActionPerformed
