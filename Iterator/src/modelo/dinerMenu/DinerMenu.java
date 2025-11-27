@@ -2,7 +2,7 @@
 package modelo.dinerMenu;
 
 import java.util.Iterator;
-import javafx.scene.control.Alert;
+import javax.swing.JOptionPane;
 import modelo.MenuItem;
 
 public class DinerMenu {
@@ -27,10 +27,10 @@ public class DinerMenu {
             this.menuItens[numberOfItens] = new MenuItem(name, description, price, vegetarian);
             numberOfItens++;
         }else{
-            Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
-            dialogoErro.setTitle("Desculpe");
-            dialogoErro.setHeaderText("Não é possivel inserir novo item, seu menu esta cheio");
-            dialogoErro.showAndWait();
+            JOptionPane.showMessageDialog(null, 
+                "Não é possivel inserir novo item, seu menu esta cheio",
+                "Desculpe",
+                JOptionPane.ERROR_MESSAGE);
         }
     }
     
